@@ -3,24 +3,7 @@ class PagesController < ApplicationController
     @market = Market.all
   end
 
-  def monday
-  end
+  def show
 
-  def tuesday
-  end
-
-  def wednesday
-  end
-
-  def thursday
-  end
-
-  def friday
-  end
-
-  def saturday
-  end
-
-  def sunday
   end
 end
