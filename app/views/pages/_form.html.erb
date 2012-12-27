@@ -1,0 +1,10 @@
+
+<!-- I want the user to put in their zipcode and it will show them the nearest farmers market -->
+
+<%= form_for(@market) do |m| %>
+<%= m.label :zipcode %>
+<%= m.text_field :zipcode %>
+<%= e.submit %>
+<% end %>
+
+

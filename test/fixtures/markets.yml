@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  address: MyString
+  zipcode: MyString
+  linkcard: false
+  open_monday: false
+  open_tuesday: false
+  open_wednesday: false
+  open_thursday: false
+  open_friday: false
+  open_saturday: false
+  open_sunday: false
+
+two:
+  name: MyString
+  address: MyString
+  zipcode: MyString
+  linkcard: false
+  open_monday: false
+  open_tuesday: false
+  open_wednesday: false
+  open_thursday: false
+  open_friday: false
+  open_saturday: false
+  open_sunday: false
