@@ -1,33 +1,35 @@
 <h1>Farmers Markets in Chicago</h1>
 
 <% d = Date.today %>
-<% d.wday = current_day %>
-<% case current_day %>
-<% when 1 %>
-<%= monday %>
-<% when 2 %>
-<%= tuesday %>
-<% when 3 %>
-<%= wednesday %>
-<% when 4 %>
-<%= thursday %>
-<% when 5 %>
-<%= friday %>
-<% when 6 %>
-<%= saturday %>
-<% when 7 %>
-<%= sunday %>
+<% @today = d.wday %>
+<% if @today == 1 %>
+	<% @today = "open_monday" %>
+<% elsif @today == 2 %>
+	<% @today = "open_tuesday" %>
+<% elsif @today == 3 %>
+	<% @today = "open_wednesday" %>
+<% elsif @today == 4 %>
+	<% @today = "open_thursday" %>
+<% elsif @today == 5 %>
+	<% today = "open_friday" %>
+<% elsif today == 6 %>
+	<%= today = "open_saturday" %>
+<% elsif today == 7 %>
+	<% today = "open_sunday" %>
 <% end %>
-
-<ul><% Market.where(:open_+("current_day") => true).each do |m| %>
+<% today.parameterize.underscore.to_sym %>
+<ul>
+	<% Market.where(today => true).each do |m| %>
 		<li><h3><%= m["name"] %></h3> 
 		    <strong> Address: </strong> <%= m["address"] %> | <strong> Accept Linkcard: </strong> <%= m["linkcard"] %>
 	   </li>
  	   <% end %>
 </ul>
-<% end %>
 
-<%= render 'form' %>
+
+<!-- something([1..7], [monday, tuesday, wednesday, thursday, friday, saturday, sunday]) --> 
+
+<%#= render 'form' %>
 
 <!-- page 1: dropdown mon-fri, on dropdown select -> post to get_markets
 page 2: select all markets where "open_"+post(day) = true, pass data to display
