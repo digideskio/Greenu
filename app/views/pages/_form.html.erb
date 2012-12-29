@@ -1,10 +1,8 @@
+dropdown select monday-sunday.
 
-<!-- I want the user to put in their zipcode and it will show them the nearest farmers market -->
+if they select monday ... this is what should show ... Market.where(:open_("what they selected") => true)
 
-<%= form_for(@market) do |m| %>
-<%= m.label :zipcode %>
-<%= m.text_field :zipcode %>
-<%= e.submit %>
-<% end %>
-
-
+<!-- key in params hash = :open_monday
+list with all options= Market.all
+value to store? 
+user will see in the drop down Monday - Friday -->

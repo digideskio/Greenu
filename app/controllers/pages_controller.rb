@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
   def home
-    @market = Market.all
+    @markets = Market.all
   end
 
   def show
-
+    @market = Market.where[@current_day => params[:day]]
   end
 end

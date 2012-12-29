@@ -1,5 +1,53 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Farmers Markets in Chicago</h1>
+
+<% d = Date.today %>
+<% d.wday = current_day %>
+<% case current_day %>
+<% when 1 %>
+<%= monday %>
+<% when 2 %>
+<%= tuesday %>
+<% when 3 %>
+<%= wednesday %>
+<% when 4 %>
+<%= thursday %>
+<% when 5 %>
+<%= friday %>
+<% when 6 %>
+<%= saturday %>
+<% when 7 %>
+<%= sunday %>
+<% end %>
+
+<ul><% Market.where(:open_+("current_day") => true).each do |m| %>
+		<li><h3><%= m["name"] %></h3> 
+		    <strong> Address: </strong> <%= m["address"] %> | <strong> Accept Linkcard: </strong> <%= m["linkcard"] %>
+	   </li>
+ 	   <% end %>
+</ul>
+<% end %>
 
 <%= render 'form' %>
+
+<!-- page 1: dropdown mon-fri, on dropdown select -> post to get_markets
+page 2: select all markets where "open_"+post(day) = true, pass data to display
+ahhh ok so now i get where your confused
+so your two options as this, you can do string concatination to pull your field like "open_"+post(day)
+OR
+you can have a field named market.days_open which is a comma delimited list of days that the market is open ie: 
+monday = 1, tuesday = 2
+so a market.days_open could be "1,4,6"
+then when the post(day) comes in, you can check to see if <day (int val)> IS IN market.open_days
+
+essentially your two SQL statements you can choose from are:
+"SELECT market WHERE "+day+"_open = TRUE";
+OR
+"SELECT market WHERE days_open LIKE '%"+day+"%'";
+one is string concat for the field name and one is searching for the day in the open_days field
+IMO both are equally as effective
+
+ -->
+
+
+
 

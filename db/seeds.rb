@@ -146,5 +146,4 @@ markets = [
          ]
 Market.create markets
 
- 
 #        yearround = [{:name => "Chicago's Downtown Farmstand", :address => "66 E. Randolph", :zipcode => "60601", :linkcard => false}] 
