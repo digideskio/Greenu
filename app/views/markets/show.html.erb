@@ -2,9 +2,12 @@
 
 <ul>
 <% @markets.each do |market| %>
+
     <h2><%= market.name %></h2> 
-    <li><%= market.address %> | 
-    	<%= market.linkcard %> 
+    <li> <strong>Address:</strong> <%= market.address %> | 
+    	<% if Market.where(:linkcard => true) %>
+			<strong> Linkcard Accepted </strong> 
+    	<% end %>
     </li>
 <% end %>
 </ul>
