@@ -1,0 +1,10 @@
+<h1>Markets in your area</h1>
+
+<ul>
+<% @markets.each do |market| %>
+    <h2><%= market.name %></h2> 
+    <li><%= market.address %> | 
+    	<%= market.linkcard %> 
+    </li>
+<% end %>
+</ul>

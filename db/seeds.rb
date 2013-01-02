@@ -3,15 +3,15 @@ Market.destroy_all
   
 markets = [
 #   mondays = 
-          {:name => "Chicago's Downtown Farmstand", :address => "66 E. Randolph, Chicago, IL", :zipcode => "60601", :linkcard => false, :open_monday => true, :open_tuesday => true, :open_wednesday => true, :open_thursday => true, :open_friday => true, :open_saturday => true, :open_sunday => false}, 
+      {:name => "Chicago's Downtown Farmstand", :address => "66 E. Randolph, Chicago, IL", :zipcode => "60601", :linkcard => false, :open_monday => true, :open_tuesday => true, :open_wednesday => true, :open_thursday => true, :open_friday => true, :open_saturday => true, :open_sunday => false}, 
 		  # :time =>  "mon-friday" = 11am-7pm, "saturday" = 11am-4pm
-          {:name => "Loyola", :address => "6590 N. Sheridan Rd., Chicago, IL", :zipcode => "60626", :linkcard => true, :open_monday => true, :open_tuesday => false, :open_wednesday => false, :open_thursday => false, :open_friday => false, :open_saturday => false, :open_sunday => false},
-          # :date => "June 11-Oct. 15, 2012"
-          # :time => "June-Sept: 3 - 7 pm; Oct: 2:30 - 6:30 pm"
+      {:name => "Loyola", :address => "6590 N. Sheridan Rd., Chicago, IL", :zipcode => "60626", :linkcard => true, :open_monday => true, :open_tuesday => false, :open_wednesday => false, :open_thursday => false, :open_friday => false, :open_saturday => false, :open_sunday => false},
+      # :date => "June 11-Oct. 15, 2012"
+      # :time => "June-Sept: 3 - 7 pm; Oct: 2:30 - 6:30 pm"
 
 #   tuesdays = 
-          {:name => "Lincoln Square", :address => "4700 N Lincoln Ave, Chicago, IL", :zipcode => "60625", :linkcard => true, :open_monday => false, :open_tuesday => true, :open_wednesday => false, :open_thursday => false, :open_friday => false, :open_saturday => false, :open_sunday => false},
-          # :time => 7 am - 1 pm
+      {:name => "Lincoln Square", :address => "4700 N Lincoln Ave, Chicago, IL", :zipcode => "60625", :linkcard => true, :open_monday => false, :open_tuesday => true, :open_wednesday => false, :open_thursday => false, :open_friday => false, :open_saturday => false, :open_sunday => false},
+      # :time => 7 am - 1 pm
 		  # :date => June 5-Oct. 30, 2012
 		  {:name => "Museum of Contemporary Art/Streeterville", :address => "220 E Chicago Ave Chicago, IL", :zipcode => "60611", :linkcard => false, :open_monday => false, :open_tuesday => true, :open_wednesday => false, :open_thursday => false, :open_friday => false, :open_saturday => false, :open_sunday => false}, 
 		  # :date June 5-Oct. 30, 2012

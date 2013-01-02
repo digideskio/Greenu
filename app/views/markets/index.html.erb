@@ -1,0 +1,69 @@
+<h1> Monday </h1>
+ 	<ul><% Market.where(:open_monday => true).each do |m| %> 
+		<li><h3><%= m["name"] %></h3> 
+		        <strong>Address: </strong><%= m["address"] %> | 
+		        <% if Market.where(:linkcard => true) %>
+		    		<strong> Accepts Linkcard </strong>
+				<% end %>
+ 	    <% end %>
+ 	</ul>
+
+<h1> Tuesday </h1>
+ 	<ul><% Market.where(:open_tuesday => true).each do |m| %>
+		<li><h3><%= m["name"] %></h3>
+		        <strong>Address: </strong><%= m["address"] %> |
+				<% if Market.where(:linkcard => true) %>
+		    		<strong> Accepts Linkcard </strong>
+				<% end %>	
+		<% end %> 	    
+ 	</ul>
+
+<h1> Wednesday </h1>
+	<ul><% Market.where(:open_wednesday => true).each do |m| %>
+		<li><h3><%= m["name"] %></h3>
+		        <strong>Address: </strong><%= m["address"] %> |
+		        <% if Market.where(:linkcard => true) %>
+		    		<strong> Accepts Linkcard </strong>
+				<% end %>
+ 	    <% end %>
+ 	</ul>
+
+<h1> Thursday </h1>
+ 	<ul><% Market.where(:open_thursday => true).each do |m| %>
+		<li><h3><%= m["name"] %></h3>
+		        <strong>Address: </strong><%= m["address"] %> |
+		        <% if Market.where(:linkcard => true) %>
+		    		<strong> Accepts Linkcard </strong>
+				<% end %>
+ 	    <% end %>
+ 	</ul>
+ 	
+<h1> Friday </h1>
+ 	<ul><% Market.where(:open_friday => true).each do |m| %>
+		<li><h3><%= m["name"] %></h3>
+		        <strong>Address: </strong><%= m["address"] %> |
+		        <% if Market.where(:linkcard => true) %>
+		    		<strong> Accepts Linkcard </strong>
+				<% end %>
+ 	    <% end %>
+ 	</ul>
+
+<h1> Saturday </h1>
+ 	<ul><% Market.where(:open_saturday => true).each do |m| %>
+		<li><h3><%= m["name"] %></h3>
+		        <strong>Address: </strong><%= m["address"] %> |
+		        <% if Market.where(:linkcard => true) %>
+		    		<strong> Accepts Linkcard </strong>
+				<% end %>
+ 	    <% end %>
+ 	</ul>
+
+<h1> Sunday </h1>
+ 	<ul><% Market.where(:open_sunday => true).each do |m| %>
+		<li><h3><%= m["name"] %></h3>
+		        <strong>Address: </strong><%= m["address"] %> |
+		        <% if Market.where(:linkcard => true) %>
+		    		<strong> Accepts Linkcard </strong>
+				<% end %>
+ 	    <% end %>
+ 	</ul>
