@@ -1,3 +1,109 @@
+GEOFF HELP:
+
+but when you did #{stuff} it was ruby-evaluating that before it requested the URL
+so if you printed the url before you actually did open(url) on it, it would only have had 1 destination
+
+json_response = open("http://maps.googleapis.com/maps/api/distancematrix/json?origins=60654&destinations=#{"60626"|"60630"}&language=en&sensor=false").read
+u = JSON.parse(json_response)
+
+FIXED here:
+
+u = JSON.parse(open(URI.encode("https://maps.googleapis.com/maps/api/distancematrix/json?origins=60654&destinations=60626|60632|60611&language=en&sensor=false")).read)
+
+______________________________________________
+
+REMOVING DUPLICATES IN ZIPCODES:
+
+ m = Market.pluck(:zipcode).uniq
+
+ _____________________________________________
+
+ example:
+
+ u = JSON.parse(open(URI.encode("https://maps.googleapis.com/maps/api/distancematrix/json?origins=60654&destinations=60626|60632|60611&language=en&sensor=false")).read)
+
+ u["rows"][0]["elements"][0]["distance"]["text"]
+
+ => "1.7 km"
+
+  u = u.chomp("km") => "1.7 "
+
+  u.to_f => 1.7
+
+  ____________________________________________
+
+  Now real thing:
+
+  @zipcodes = Market.pluck(:zipcode).uniq
+
+  markets = JSON.parse(open(URI.encode("https://maps.googleapis.com/maps/api/distancematrix/json?origins=60654&destinations=#{zipcodes}&language=en&sensor=false")).read)
+
+  x = markets["rows"][0]["elements"][0..19]["distance"]["text"].chomp("km").to_f 
+
+  if x <= 2.0
+    then take the ["destination_addresses"]["row" # that it was in below] and match that zipcode with the zipcodes in my system, once its matched find that elements id and then make that = @market
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

@@ -11,3 +11,171 @@
  *= require_self
  *= require_tree .
  */
+ html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END RESET */
+
+/*NEW STYLES BEGIN*/
+
+/*#navbar {
+	position: fixed;
+	font-family:'Raleway', sans-serif;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+	margin-bottom: 0;
+	background-color: #FFFFFF;
+	position: right;
+}*/
+
+#main {
+	background-color: #f7f5f2;
+}
+
+#home_header .container {
+	background: #45494D url("background.jpg") no-repeat center center; 
+	background-size: cover;
+	position: relative; 
+	/*box-shadow: -13px -2px 12px black;*/
+	z-index: 20;
+	max-width: 2000px;
+	min-height: 317px;
+	width: 100%;
+	height: 50%;
+	padding: 14% 0;
+	margin: 0px auto 0px auto;
+}
+
+#home_header .container h1 {
+	padding: 28px;
+	color: #FFFFFF;
+	font-family: 'Ultra', serif;
+	font-size: 400%;
+	font-weight: 300;
+	text-align: center;
+	text-shadow: 1px 1px 0px #000000;
+}
+
+#home_header .container span {
+	font-style: italic;
+}
+
+#home_header .footer_arrow a {
+	z-index: 300;
+	background: url("arrow.png") no-repeat;
+	background-position: center bottom;
+	z-index: 300;
+	display: block;
+	margin: -13px auto;
+	height: 25px;
+	position: relative;
+	top: -12px;
+}
+
+
+#middle {
+	background-color: #f7f5f2;
+	position: fixed;
+	text-align: center;
+	padding: 32px 30px;
+	float: none;
+	width: 100%;
+	height:75%;
+	font-size: 100%;
+	font-family: 'Raleway', sans-serif;
+	line-height: 2em;
+	position: absolute;
+}
+
+p {
+	/*this is where the form syles should go*/
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 150%;
+}
+
+span {
+	font-weight: bold;
+}
+
+#bottom {
+	/*background-color: #FFFFFF;*/
+	position: fixed;
+	text-align: center;
+	padding: 12px 30px;
+	float: none;
+	width: 100%;
+	font-size: 100%;
+	font-family: "Courier New" Courier, monospace;
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 150%;
+}
+
+span {
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

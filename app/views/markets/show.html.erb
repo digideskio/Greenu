@@ -1,13 +1,61 @@
-<h1>Markets in your area</h1>
+<% d = Date.today %>
+<% today = d.wday %>
+<% if today == 1 %>
+	<% today = "Monday" %>
+<% elsif today == 2 %>
+	<% today = "Tuesday" %>
+<% elsif today == 3 %>
+	<% today = "Wednesday" %>
+<% elsif today == 4 %>
+	<% today = "Thursday" %>
+<% elsif today == 5 %>
+	<% today = "Friday" %>
+<% elsif today == 6 %>
+	<% today = "Saturday" %>
+<% elsif today == 7 %>
+	<% today = "Sunday" %>
+<% end %>
+
+<% time = Time.now %>
+<% if time == 1..12 %>
+	<% time = "Morning" %>
+<% elsif time == 13..17 %>
+	<% time = "Afternoon" %>
+<% elsif time == 17..24 %>
+	<% time = "Evening" %>
+<% end %>
+
+<h1> It's <%= today %> <%= time %> here is the closest markets to this zipcode = <%= params[:zip] %> </h1>
+
+<% d = Date.today %>
+<% today = d.wday %>
+<% if today == 1 %>
+	<% today = "open_monday" %>
+<% elsif today == 2 %>
+	<% today = "open_tuesday" %>
+<% elsif today == 3 %>
+	<% today = "open_wednesday" %>
+<% elsif today == 4 %>
+	<% today = "open_thursday" %>
+<% elsif today == 5 %>
+	<% today = "open_friday" %>
+<% elsif today == 6 %>
+	<% today = "open_saturday" %>
+<% elsif today == 7 %>
+	<% today = "open_sunday" %>
+<% end %>
+
+<% today = today.parameterize.underscore.to_sym %>
 
 <ul>
-<% @markets.each do |market| %>
-
-    <h2><%= market.name %></h2> 
-    <li> <strong>Address:</strong> <%= market.address %> | 
-    	<% if Market.where(:linkcard => true) %>
-			<strong> Linkcard Accepted </strong> 
-    	<% end %>
-    </li>
+<%# if Market.where(today => true) %>
+	<% @markets.each do |market| %>
+    	<h2><%= market.name %></h2> 
+    	<li> <strong>Address:</strong> <%= market.address %> | 
+    		<% if Market.where(:linkcard => true) %>
+				<strong> Linkcard Accepted </strong> 
+    		<% end %>
+    	</li>
+	<% end %>
 <% end %>
 </ul>

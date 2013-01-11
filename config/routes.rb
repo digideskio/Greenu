@@ -3,13 +3,15 @@ Greenu::Application.routes.draw do
 
   get "/market" => "Markets#show", :as => "market"
 
+  post "/market" => "Markets#create"
+
   get "/market/edit" => "Markets#edit", :as => "edit_market"
 
   get "/market/new" => "Markets#new", :as => "new_market"
 
-  get "/home" => "Pages#home", :as => "home"
+  get "/" => "Pages#home", :as => "home"
 
-  root :to => 'pages#home'
+  root :to => "Pages#home"
 
 end
 

@@ -13,3 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+
+// slider js
+
+$ (#middle).hide();
+$ (#home_header .footer_arrow a).onclick (function (){
+	$(this).slideDown();
+	$(#middle).show()
+});
+
+
+}
