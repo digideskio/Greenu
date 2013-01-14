@@ -18,11 +18,10 @@ $(document).ready(function(){
 
 // slider js
 
-$ (#middle).hide();
-$ (#home_header .footer_arrow a).onclick (function (){
-	$(this).slideDown();
-	$(#middle).show()
-});
+  $("#middle").hide();
+  $(".footer_arrow").click(function(){
+    $("#middle").slideToggle("slow");
+  });
 
 
 }

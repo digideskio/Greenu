@@ -27,28 +27,25 @@
 	<div id="home_header">
 
 		<div class="container">
-
-		<h1> It's <span><%= today %></span>, <br /> Find the Closest <br /> Farmers Market </h1>
-
+			<h1> It's <span><%= today %></span>, <br /> Find the Closest <br /> Farmers Market </h1>
 		</div>
 
 		<div class="footer_arrow">
 			<a href="#middle"></a>
 		</div>
-
-	</div>
 	
 	</div>
 
-<div id="middle">
+	<div id="home_middle">
 
-	<%= form_tag market_url, :method => 'post' do %>
-		<p> 
-			<%= text_field_tag :search, params[:zip] %>
-			<%= submit_tag "Search", :name => nil %>
-		</p>
-	<% end %>
-	<br />
+		<div class="container">
+		
+			<%= form_tag market_url, :method => 'post' do %>
+				<%= text_field_tag :search, params[:zip], :placeholder => "Enter Zip", :class => "input" %>
+				<%= submit_tag "Search", :name => nil, :class => "submit" %>
+			<% end %>
+		
+			<br />
 
 	<% d = Date.today %>
 	<% today = d.wday %>
@@ -70,20 +67,34 @@
 
 	<% today = today.parameterize.underscore.to_sym %>
 
-	<ul id="box">
-		<% Market.where(today => true).each do |m| %>
-			<li>
-				<h3><%= m["name"] %></h3>
-				<ul> 
-			    	<li><%= m["address"] %> | 
-			    	<% if Market.where(:linkcard => true) %>
-			    		<span> Linkcard Accepted </span> 
-    				<% end %></li>
-			    <ul>
-		   </li>
-		   <br />
-	 	   <% end %>
-	</ul>
+			<ul class="markets">
+				<% Market.where(today => true).each do |m| %>
+				<li>
+					<h3><%= m["name"] %></h3>
+					<ul> 
+			    		<li><%= m["address"] %> | 
+			    			<% if Market.where(:linkcard => true) %>
+			    			<span> Linkcard Accepted </span> 
+    					<% end %>
+    					</li>
+			    	<ul>
+		   			</li>
+		   			<br />
+	 	   		<% end %>
+			</ul>
+
+		</div>
+	</div>
+
+	<div id="home_bottom"
+		<div class="container">
+			<h3><%#= link_to 'Market Directory', markets_url %>  
+				<%#= link_to 'Seasonal Food Chart', home_url %>
+			</h3>
+		</div>
+	</div>
+
+</h3>
 
 </div>
 

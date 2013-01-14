@@ -17,7 +17,7 @@ class MarketsController < ApplicationController
     end
 
     user_zip = params[:zip]
-    zips = "60601|60626|60625|60611|60644|60610|60636|60614|60616|60649|60640|60624|60651|60628|60619|60602|60615|60606|60637|60621|60609|60660|60605|60653|60613|60647|60608|60634|60622|60618|60630"
+    zips = Market.pluck(:zipcode).uniq.join('|')
 
     json_response = open(URI.encode("http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{user_zip}&destinations=#{zips}&language=en&sensor=false")).read
     markets = JSON.parse(json_response)
