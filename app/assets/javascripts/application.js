@@ -14,10 +14,4 @@
 //= require jquery_ujs
 //= require_tree .
 
-// slider js
-$(document).ready(function(){
-	$("#home_middle").hide();
-  	$(".footer_arrow").click(function(){
-    $("#middle_middle").slideToggle("slow");
-  })
-}
+
