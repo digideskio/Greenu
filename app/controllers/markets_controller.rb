@@ -21,10 +21,17 @@ class MarketsController < ApplicationController
 
     json_response = open(URI.encode("http://maps.googleapis.com/maps/api/distancematrix/json?origins=#{user_zip}&destinations=#{zips}&language=en&sensor=false")).read
     markets = JSON.parse(json_response)
-    find_closest_markets = markets["rows"][0]["elements"][0..31]["distance"]["text"].chomp("km").to_f
-    find_closest_markets = of the ones that have <= 2.0 give me their element number
-    take those elements numbers plug them into this equation = u["destination_addresses"][element number].scan(/\d/).join('')
-    @markets = Market.where(:zipcode = zipcodes above)
+
+    paired_markets = markets['destination_addresses'].zip(markets['rows'].first['elements'])
+    close_markets = paired_markets.select do |destination, data|
+      data['distance']['value'] < 2500
+    end
+
+    close_markets.map do |destination, data|
+      zip_code = destination[/(\d+)/]
+      distance = data['distance']['text']
+      [zip_code, distance]
+    end
 
   	respond_to do |format|
       format.html # show.html.erb
