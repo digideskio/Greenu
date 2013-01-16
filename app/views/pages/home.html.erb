@@ -42,12 +42,10 @@
 
 		<div class="container">
 		<!-- names have changed, doesn't work yet -->
-			<%= form_tag '/market', :method => 'post' do %>
+			<%= form_tag market_url, :method => 'get' do %>
 				<%= text_field_tag :search, params[:zip], :placeholder => "Enter Zip", :class => "input" %>
 				<%= submit_tag "Search", :name => nil, :class => "submit" %>
 			<% end %>
-		
-			<br />
 
 <!-- will be put into helper and need to DRY-->
 	<% d = Date.today %>

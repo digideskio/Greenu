@@ -11,12 +11,12 @@
 <% elsif today == 5 %>
 	<% today = "Friday" %>
 <% elsif today == 6 %>
-	<% today = "Saturday" %>
+<% today = "Saturday" %>
 <% elsif today == 7 %>
 	<% today = "Sunday" %>
 <% end %>
 
-<h1> It's <%= today %> <%= time %> </h1>
+<h1> It's <%= today %> </h1>
 
 <% d = Date.today %>
 <% today = d.wday %>
@@ -47,6 +47,4 @@
     		<% end %>
     	</li>
 	<% end %>
-<% end %>
 </ul>
-
