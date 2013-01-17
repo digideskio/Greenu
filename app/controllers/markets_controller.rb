@@ -21,15 +21,15 @@ class MarketsController < ApplicationController
       data['distance']['value'] < 2500
     end
  
-    @distance = close_markets.map do |destination, data|
-                distance = data['distance']['text']
-    end
-    
     @zipcodes = close_markets.map do |destination, data|
                 zip_code = destination[/(\d+)/]
     end
 
     @markets = Market.where(:zipcode => @zipcodes)
+
+    # distance = close_markets.map do |destination, data|
+    #             distance = data['distance']['text']
+    # end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,23 +37,8 @@ class MarketsController < ApplicationController
     end 
   end
  
-  def create
- 
-   # @search = params[:search]
-   #  if((@search == nil) || (@search == "00000") || (@search.length != 5) || (@search.match(/\D/) != nil))
-   #      flash[:notice] = "Invalid Zipcode"
-   #      redirect_to root_path
-   #      return
-   #  end 
- 
-   #  # user_zip = @search
- 
-   #  @market = Market.new
-   #  @market.zipcode = @search
-   #  @market.save
- 
-   #  redirect_to :action => :show, :id => @market.id
-  end
+  # def create
+  # end
  
   # def edit
   #   @market = Market.find(params[:id])
