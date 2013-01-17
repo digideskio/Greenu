@@ -20,6 +20,8 @@ class MarketsController < ApplicationController
     close_markets = paired_markets.select do |destination, data|
       data['distance']['value'] < 2500
     end
+
+    @close_markets = close_markets
  
     @zipcodes = close_markets.map do |destination, data|
                 zip_code = destination[/(\d+)/]
