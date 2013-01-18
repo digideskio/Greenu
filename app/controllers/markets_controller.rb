@@ -27,67 +27,24 @@ class MarketsController < ApplicationController
                 zip_code = destination[/(\d+)/]
     end
 
-    @markets = Market.where(:zipcode => @zipcodes)
-
-    # distance = close_markets.map do |destination, data|
-    #             distance = data['distance']['text']
-    # end
+    if Market.where(:zipcode => @zipcodes) == nil
+      flash[:notice] = "Sorry there are no markets 1.5 miles away from you"
+      return 
+      close_markets = paired_markets.select do |destination, data|
+        data['distance']['value'] < 4000
+      end
+      @zipcodes = close_markets.map do |destination, data|
+          zip_code = destination[/(\d+)/]
+      end
+      @markets_farther = Market.where(:zipcode => @zipcodes)
+    else 
+      @markets = Market.where(:zipcode => @zipcodes)
+    end
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @market }
     end 
   end
- 
-  # def create
-  # end
- 
-  # def edit
-  #   @market = Market.find(params[:id])
- 
-  #   respond_to do |format|
-  #     if @market.update_attributes(params[:market])
-  #       format.html { redirect_to @market }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render 'edit' }
-  #       format.json { render json: @market.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
- 
-  # def update 
-  #   @market = Market.find(params[:id])
- 
-  #   respond_to do |format|
-  #     if @market.update_attributes(params[:market])
-  #       format.html { redirect_to @market }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render 'edit' }
-  #       format.json { render json: @market.errors, status: :unprocessable_entity }
-  #     end
-  #   end 
-  # end
- 
- 
-  # def new
-  #   @market = Market.new
- 
-  #   respond_to do |format|
-  #     format.html # new.html.erb
-  #     format.json { render json: @market }
-  #   end
-  # end
- 
-  # def destroy
-  # @market = Market.find(params[:id])
-  #   @market.destroy
- 
-  #   respond_to do |format|
-  #     format.html { redirect_to markets_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
  
 end

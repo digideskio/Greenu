@@ -14,4 +14,12 @@
 //= require jquery_ujs
 //= require_tree .
 
-
+$(document).ready(function(){
+$("#home_middle").hide();
+$("nav").hide();
+$(".footer_arrow").click(function(){
+	  $("#home_middle").slideToggle("slow");
+	  $("nav").slideToggle("slow");
+	  $(this).toggleClass("active");
+	});
+});

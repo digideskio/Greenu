@@ -108,7 +108,7 @@ nav li {
 	font-style: italic;
 }
 
-#home_header .footer_arrow a {
+#home_header .footer_arrow {
 	z-index: 300;
 	background: url("arrow.png") no-repeat;
 	background-position: center bottom;
@@ -157,7 +157,6 @@ nav li {
 	padding: 25px;
 	background-color: #919689;
 	text-align: center;
-	font-weight: none;
 	font-size: 120%;
 	color: white;
 	margin-left: 12px;
@@ -175,39 +174,44 @@ nav li {
 	background-color: #7D8177;
 }
 
-h3 {
-	font-weight: bold;
-	font-size: 150%;
+/* SHOW PAGE STYLES */
+
+#show_header {
+ margin: 0px auto;
 }
 
-span {
-	font-weight: bold;
+#show_header h1 {
+	padding: 28px;
+	color: #33cdc7;
+	font-family: 'Ultra', serif;
+	font-size: 400%;
+	font-weight: 300;
+	text-align: center;
+	text-shadow: 1px 1px 0px #000000;
 }
 
-.markets {
+#show_header h3 {
+	text-align: center;
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+	font-size: 150%;	
+	text-decoration: underline;
+}
+
+#all_markets h2 {
+	text-align: center;
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+	font-size: 200%;
+}
+
+#all_markets li {
 	font-size: 100%;
 	line-height: 2em;
 	text-align: center;
-}
-
-#home_bottom {
-	/*background-color: #FFFFFF;*/
-	padding: 12px 30px;
-	float: none;
-	width: 100%;
-	font-size: 100%;
-}
-
-h3 {
-	font-weight: bold;
-	font-size: 150%;
 	font-family: 'Raleway', sans-serif;
-	text-align: center;
 }
 
-span {
-	font-weight: bold;
-}
 
 
 

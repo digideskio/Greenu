@@ -19,41 +19,56 @@
 	<% today = "Sunday" %>
 <% end %>
 
-<h1> It's <%= today %> </h1>
+<div role="main">
 
-<!-- will be put into helper and need to DRY-->
-<% d = Date.today %>
-<% today = d.wday %>
-<% if today == 1 %>
-	<% today = "open_monday" %>
-<% elsif today == 2 %>
-	<% today = "open_tuesday" %>
-<% elsif today == 3 %>
-	<% today = "open_wednesday" %>
-<% elsif today == 4 %>
-	<% today = "open_thursday" %>
-<% elsif today == 5 %>
-	<% today = "open_friday" %>
-<% elsif today == 6 %>
-	<% today = "open_saturday" %>
-<% elsif today == 7 %>
-	<% today = "open_sunday" %>
-<% end %>
+	<div id="show_header">
 
-<% today = today.parameterize.underscore.to_sym %>
+		<h1> It's <%= today %>, </br>
+		These Markets are only </br> 1.5 miles from you:</h1>
+		
 
-<ul>
-	<% @markets.each do |market| %>
-    	<h2><%= market.name %></h2>  
-    	<li> <strong>Address:</strong> <%= market.address %> 
-    		<% if market.linkcard %>
-				 <strong>| Linkcard Accepted </strong> 
-    		<% end %>
-    		<% @close_markets.each do |data| %><br/>
-    			<% if data[0].include?(market.zipcode) %>
-    			<%= data[1]["distance"]["text"] %> 
-    			<% end %>
-    		<% end %>
-    	</li>
-	<% end %>
-</ul>
+	</div>
+
+	</br>
+
+	<div id="all_markets">
+		<ul>
+			<% @markets.each do |market| %>
+		    	<h2><%= market.name %></h2><br>  
+		    	<li> <strong>Address:</strong> <%= market.address %> 
+		    		<% if market.linkcard %>
+						 <strong>| Linkcard Accepted </strong> 
+		    		<% end %>
+		    		<%# @close_markets.each do |data| %>
+		    			<%# if data[0].include?(market.zipcode) %>
+		    			<%#= data[1]["distance"]["text"] %> 
+		    			<%# end %>
+		    		<%# end %>
+		    	</li>
+		        </br>
+			<% end %>
+		</ul>
+	</div>
+
+	<!-- will be put into helper and need to DRY-->
+		<% d = Date.today %>
+		<% today = d.wday %>
+		<% if today == 1 %>
+			<% today = "open_monday" %>
+		<% elsif today == 2 %>
+			<% today = "open_tuesday" %>
+		<% elsif today == 3 %>
+			<% today = "open_wednesday" %>
+		<% elsif today == 4 %>
+			<% today = "open_thursday" %>
+		<% elsif today == 5 %>
+			<% today = "open_friday" %>
+		<% elsif today == 6 %>
+			<% today = "open_saturday" %>
+		<% elsif today == 7 %>
+			<% today = "open_sunday" %>
+		<% end %>
+		
+		<% today = today.parameterize.underscore.to_sym %>
+
+</div>	
